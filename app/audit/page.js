@@ -35,9 +35,6 @@ export default function AuditTrail() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    intervalRef.current = setInterval(() => {
-      fetchAuditLogsRealTime();
-    }, 3000);
   };
 
   const fetchAuditLogs = async () => {
