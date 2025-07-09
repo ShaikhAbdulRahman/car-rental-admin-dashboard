@@ -1,15 +1,19 @@
 {
-  "functions": {
-    "app/api/**/*.js": {
-      "maxDuration": 30
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
     }
-  },
-  "env": {
-    "JWT_SECRET": "37523927003424f356734afa927227a559ef7b8e1879de5cea403c9711f3346e806d4cd161e8e82d4aabc2715bfa4c921178cd72da217408722b67cd87005bb8"
-  },
-  "build": {
-    "env": {
-      "NEXT_TELEMETRY_DISABLED": "1"
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
-  }
+  ]
 }
